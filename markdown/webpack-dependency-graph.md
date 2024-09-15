@@ -18,11 +18,11 @@ Webpack creates a dependency graph and bundles modules through a process that ca
 
 Let's consider a simple React application structure:
 
-![simple React application structure!](/assets/wdg1.png "simple React application structure")
+![simple React application structure!](assets/wdg1.png "simple React application structure")
 
 1. Starting with `index.js` as the entry point:
 
-![index.js!](/assets/wdg2.png "index.js")
+![index.js!](assets/wdg2.png "index.js")
 
 2. Webpack parses this file and finds dependencies: React, ReactDOM, App, and main.css.
 
@@ -34,13 +34,13 @@ Let's consider a simple React application structure:
 
 4. It then parses App.js:
 
-![App.js!](/assets/wdg3.png "App.js")
+![App.js!](assets/wdg3.png "App.js")
 
 5. This process continues for Header.js and Footer.js.
 
 6. The resulting dependency graph might look something like this:
 
-![final React application structure!](/assets/wdg4.png "final React application structure")
+![final React application structure!](assets/wdg4.png "final React application structure")
 
 7. Webpack then bundles these modules, applying necessary transformations (via loaders like babel-loader for JSX, css-loader for CSS), and produces one or more output files.
 
@@ -48,4 +48,4 @@ Let's consider a simple React application structure:
 
 Here's a simplified visual representation of this process:
 
-![webpack dependency graph!](/assets/wdg5.svg "webpack dependency graph")
+![webpack dependency graph!](assets/wdg5.svg "webpack dependency graph")
