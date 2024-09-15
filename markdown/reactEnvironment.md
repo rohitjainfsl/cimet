@@ -10,7 +10,7 @@
 ## Babel:
 
 1. It's a JavaScript compiler
-2. Converts modern JS & JSX into JS which is understood by most browsers.
+2. It takes modern JavaScript code and transforms it into a backwards compatible version that can run in older environments.
 3. In addition to converting modern JS and JSX:
    1. It allows using future JavaScript features today
    2. Enables custom transformations via plugins
