@@ -48,4 +48,4 @@ Let's consider a simple React application structure:
 
 Here's a simplified visual representation of this process:
 
-![webpack dependency graph!](assets/wdg5.svg "webpack dependency graph")
+![webpack dependency graph!](assets/wdg5.png "webpack dependency graph")
