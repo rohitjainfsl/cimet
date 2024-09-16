@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+
+    <script>
+      //   let x = 1;
+      //   for (let i = 1; i <= 5; i++) {
+      //     for (let j = 1; j <= 5; j++) {
+      //       x++;
+      //     }
+      //   }
+      //   console.log(x);
+
+      //   let x = 1;
+      //   for (let i = 1; i <= 5; i++) {
+      //     for (let j = i + 1; j <= 5; j++) {
+      //       x++;
+      //     }
+      //   }
+      //   console.log(x);
+
+      //   let x = 1;
+      //   for (let i = 1; i <= 5; i++) {
+      //     for (let j = i + 1; j <= 5; j++) {
+      //       x = x + i;
+      //     }
+      //   }
+      //   console.log(x);
+
+      //   const arr = [1, 2, 3, 4, 5];
+      //   const result =
+      //     arr.reduce((acc, cur) => acc + cur, 10) -
+      //     arr.filter((x) => x % 2 === 0).length;
+      //   console.log(result);
+
+      //   const arr = [34, 56, 12, 11, 9];
+
+      //   arr.filter((num) => {
+      //     return num % 2 === 0;
+      //   });
+
+      //   let str = "JavaScript";
+      //   let output = str.split("").reverse().join("").slice(0, -3).toUpperCase();
+      //   console.log(output);
+
+      //   const arr = [1, 2, 3, 4, 5];
+      //   const result = arr
+      //     .map((x) => x * 2)
+      //     .filter((x) => x > 5)
+      //     .reduce((acc, cur) => acc + cur, 0);
+      //   console.log(result);
+
+      //   console.log(x);
+      //   var x = 5;
+      //   function innerScope() {
+      //     var x = 10;
+      //     console.log(x);
+      //   }
+      //   innerScope();
+      //   console.log(x);
+
+      //   let x = 0;
+      //   function fun() {
+      //     if (x === 0) {
+      //       var x = 1;
+      //       console.log(x); // What is logged?
+      //     }
+      //     console.log(x); // What is logged?
+      //   }
+      //   fun();
+
+      //   function foo() {
+      //     console.log(a);
+      //     function a() {}
+
+      //     var a = 1;
+      //     console.log(a);
+      //   }
+      //   foo();
+
+      //CALLBACK, CLOSURES
+
+      //   function outer() {
+      //     let counter = 0;
+      //     function inner() {
+      //       counter++;
+      //       console.log(counter);
+      //     }
+      //     return inner;
+      //   }
+      //   const fn = outer();
+      //   fn(); // What is logged?
+      //   fn(); // What is logged?
+
+      //   function getData(callback) {
+      //     setTimeout(function () {
+      //       callback(null, "Data");
+      //     }, 2000);
+      //   }
+      //   getData(function (err, data) {
+      //     if (err) {
+      //       console.log("Error:", err);
+      //     } else {
+      //       console.log("Data:", data);
+      //     }
+      //   });
+
+      //   for (var i = 0; i < 3; i++) {
+      //     setInterval(() => {
+      //       console.log(i);
+      //     }, 1000);
+      //   }
+
+      //   let arr1 = [1, 2, 3];
+      //   let arr2 = [4, 5, 6];
+      //   arr1.push(...arr2);
+      //   arr1.splice(2, 0, 7, 8);
+      //   arr1.shift();
+      //   let result = arr1.pop() + arr1[arr1.length - 1];
+      //   console.log(result);
+      //   console.log(arr1);
+
+      const arr = [2, 3, 4];
+      //   let a = arr.pop();
+      //   let b = arr.shift();
+      //   let c = a + b;
+      //   console.log(c);
+
+      //   let a = arr.shift();
+      //   let b = a++;
+      //   let c = ++b;
+      //   console.log(a + b + c);
+    </script>
+  </body>
+</html>
