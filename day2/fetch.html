@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch - Predefined Promises</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <img src="" alt="" />
+      <h2></h2>
+      <p></p>
+    </div>
+
+    <script>
+      // https://randomuser.me/api
+      // fetch image, name & email from this API
+      // and print in the DOM
+
+      fetch("https://randomuser.me/api")
+        .then((res) => res.json())
+        .then((data) => {
+            let image=data.results[0].picture.large
+            let name=data.results[0].name.first+" "+data.results[0].name.last
+            let email=data.results[0].email
+            putInDom({image,name,email})
+        })
+        .catch((err)=>console.log(err))
+        .finally(()=>console.log("task completed"))
+        
+        function putInDom({image,name,email}){
+            let img=document.querySelector("img")
+            let h2=document.querySelector("h2")
+            let p=document.querySelector("p")
+            img.src=image
+            h2.textContent=name
+            p.innerText=email
+        }
+    </script>
+  </body>
+</html>

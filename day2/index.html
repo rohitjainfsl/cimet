@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+
+    <script>
+      const str = "Javascript is awesome";
+      function reverseStringInPlace(str) {
+        if (typeof str != "string" || !str.trim().includes(" ")) return;
+
+        let result = str
+          .split(" ")
+          .map((el) => el.split("").reverse().join(""));
+
+        return result.join(" ");
+      }
+
+      console.log(reverseStringInPlace(str));
+    </script>
+  </body>
+</html>

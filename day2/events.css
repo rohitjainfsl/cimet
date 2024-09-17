@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  width: 60%;
+  margin: 3rem auto;
+}
+li {
+  margin: 2rem 0;
+  border: 1px solid;
+  cursor: pointer;
+}
