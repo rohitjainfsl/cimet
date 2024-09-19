@@ -20,22 +20,23 @@
       fetch("https://randomuser.me/api")
         .then((res) => res.json())
         .then((data) => {
-            let image=data.results[0].picture.large
-            let name=data.results[0].name.first+" "+data.results[0].name.last
-            let email=data.results[0].email
-            putInDom({image,name,email})
+          let image = data.results[0].picture.large;
+          let name =
+            data.results[0].name.first + " " + data.results[0].name.last;
+          let email = data.results[0].email;
+          putInDom({ image, name, email });
         })
-        .catch((err)=>console.log(err))
-        .finally(()=>console.log("task completed"))
-        
-        function putInDom({image,name,email}){
-            let img=document.querySelector("img")
-            let h2=document.querySelector("h2")
-            let p=document.querySelector("p")
-            img.src=image
-            h2.textContent=name
-            p.innerText=email
-        }
+        .catch((err) => console.log(err))
+        .finally(() => console.log("task completed"));
+
+      function putInDom({ image, name, email }) {
+        let img = document.querySelector("img");
+        let h2 = document.querySelector("h2");
+        let p = document.querySelector("p");
+        img.src = image;
+        h2.textContent = name;
+        p.innerText = email;
+      }
     </script>
   </body>
 </html>
