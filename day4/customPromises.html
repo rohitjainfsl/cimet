@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Promises</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+    <script>
+      //     new Promise((resolve, reject) => {
+
+      //     });
+
+      //   Promise.resolve();
+      //   Promise.reject();
+
+      //   console.log("Start");
+      //   Promise.resolve().then(() => console.log("Promise"));
+      //   console.log("End");
+
+      //   const promise1 = Promise.resolve("One");
+      //   const promise2 = new Promise((resolve, reject) =>
+      //     setTimeout(() => reject("Two"), 100)
+      //   );
+      //   const promise3 = new Promise((resolve) =>
+      //     setTimeout(() => resolve("Three"), 500)
+      //   );
+      //   try {
+      //     Promise.allSettled([promise1, promise2, promise3]).then((result) =>
+      //       console.log(result)
+      //     );
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
+
+      // Snippet 1
+      //   Promise.resolve().then(() => console.log("A"));
+      //   console.log("B");
+
+      // Snippet 2
+      //   (async () => {
+      //     await Promise.resolve();
+      //     console.log("A");
+      //   })();
+      //   console.log("B");
+
+      //   Promise.resolve("First")
+      //     .then((result) => {
+      //       console.log(result);
+      //       return "Second";
+      //     })
+      //     .then((result) => {
+      //       console.log(result);
+      //       throw new Error("Something went wrong");
+      //     })
+      //     .catch((error) => {
+      //       console.log(error.message);
+      //       return "Recovered";
+      //     })
+      //     .then((result) => {
+      //       console.log(result);
+      //     });
+
+      //   console.log("Start");
+      //   setInterval(() => console.log("Timeout 1"), 3000);
+      //   Promise.resolve()
+      //     .then(() => console.log("Promise 1"))
+      //     .then(() => {
+      //       console.log("Promise 2");
+      //       return Promise.resolve("Promise 3");
+      //     })
+      //     .then(console.log);
+      //   setInterval(() => console.log("Timeout 2"), 4000);
+      //   console.log("End");
+
+      //   console.log("Start");
+      //   setTimeout(() => console.log("Timeout"), 0);
+      //   fetch("http://fakestoreapi.com/products")
+      //     .then((response) => response.json())
+      //     .then((result) => console.log(result));
+
+      //   const obj = { a: 1, b: 2, c: 3 };
+      //   for (let [key, value] of Object.entries(obj)) {
+      //     if (value % 2 === 0) {
+      //       delete obj[key];
+      //     }
+      //   }
+      //   console.log(Object.keys(obj).length);
+
+      const obj = {
+        name: "Divya",
+        work: {
+          company: "CIMET",
+          role: "Full Stack Developer",
+        },
+        gender: "female",
+      };
+      function flatObj(obj, str) {
+        let newObj = {};
+        for (let k in obj) {
+          const   newStr = str ? str + "_" + k : k;
+          if (typeof obj[k] === "object") {
+            let tempObj = flatObj(obj[k], newStr);
+            newObj = { ...newObj, ...tempObj };
+          } else {
+            if (str != "") {
+              newObj[newStr] = obj[k];
+            //   newObj[str + "_" + k] = obj[k];
+            } else {
+              newObj[k] = obj[k];
+            }
+          }
+        }
+        return newObj;
+      }
+      const newFlatObj=flatObj(obj, "");
+      for(let i in newFlatObj)
+      {
+        document.write(i+ " " +newFlatObj[i])
+      }
+// document.write(flatObj(obj,""))
+      //WRITE A FUNCTION TO RECURSIVELY FLATTEN THE OBJECT
+
+      /*
+      name: Divya
+      work_company: CIMET
+      work_role: FSD
+      gender: female
+      */
+
+      //   Object.keys();
+      //   Object.values();
+      //   console.log(Object.entries(obj));
+
+      // let newObj = Object.entries(obj).reverse();
+      // // console.log(newObj)
+      // for(let i of newObj){
+      //     document.write(i[0] + " : " + i[1] + "<br>")
+      // }
+    </script>
+  </body>
+</html>

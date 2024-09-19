@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotate Array</title>
+  </head>
+  <body>
+    <div id="wrapper"></div>
+
+    <script>
+      const input = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+
+      // OUTPUT:
+      // [
+      //   [7,4,1],
+      //   [8,5,2],
+      //   [9,6,3],
+      // ]
+      function rotateArray(arr){
+
+        for(let i=0;i<arr.length;i++){
+
+            for(let j=0;j<arr.length;j++){
+                if(i<= j){
+                    continue;
+                }
+                
+                let temp=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=temp;
+
+                    
+            
+            }
+        }
+
+        console.log(arr);
+        for(let i=0;i<arr.length;i++)
+        {
+            arr[i].reverse();
+        }  
+        return arr;
+
+      }
+      const newArr=rotateArray(input);
+      console.log(newArr)
+    </script>
+  </body>
+</html>
