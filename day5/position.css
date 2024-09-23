@@ -1,0 +1,39 @@
+/* Box model by default states that: dimensions of a box/element comprises of width + padding + border + margin.  */
+/* box-sizing: content-box */
+
+/* box-sizing: border-box states that: dimensions of a box/element comprises of (width + padding + border) + margin. */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  margin-top: 30px;
+}
+.box {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
+  position: relative;
+  width: 30%;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -15%;
+  left: 45%;
+  font-size: 1.5rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

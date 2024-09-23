@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+#battery {
+  width: 200px;
+  height: 80px;
+  border: 8px solid yellow;
+  position: relative;
+  padding: 0.5rem;
+}
+#battery::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: yellow;
+  right: -18px;
+  top: 30%;
+}
+#battery::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 81%;
+  background-color: rgb(230, 230, 139);
+  top: 6px;
+  left: 8px;
+  animation: charging 4s 0.5s 5 ease-in-out;
+}
+@keyframes charging {
+  0% {
+    width: 0;
+  }
+  25%,
+  35% {
+    width: 25%;
+  }
+  50%,
+  60% {
+    width: 50%;
+  }
+  75% {
+    width: 75%;
+  }
+  90%,
+  100% {
+    width: 91%;
+  }
+}
