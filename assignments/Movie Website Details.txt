@@ -1,0 +1,4 @@
+Reference: https://movix-app-murex.vercel.app/
+TMDB: https://www.themoviedb.org/
+API KEY: https://www.themoviedb.org/settings/api
+Developer Section: https://developer.themoviedb.org/

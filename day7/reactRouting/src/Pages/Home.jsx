@@ -1,15 +1,7 @@
-import React from 'react'
-import Header from '../components/Header'
-import Intro from '../components/Intro'
+import Intro from "../components/Intro";
 
 const Home = () => {
-  return (
-    <div>
+  return <Intro />;
+};
 
-        <Header/>
-        <Intro />
-    </div>
-  )
-}
-
-export default Home
+export default Home;
