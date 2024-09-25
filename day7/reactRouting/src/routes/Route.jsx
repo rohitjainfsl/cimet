@@ -1,41 +1,27 @@
-// import { BrowserRouter, Routes, Route as R } from "react-router-dom";
-import axios from "axios";
 import Home from "../Pages/Home";
 import Products from "../Pages/Products";
 import SingleProduct from "../Pages/SingleProduct";
-// import Product from "../components/Product";
 import ProductWrapper from "../components/ProductWrapper";
-
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Blog from "../Pages/Blog";
 import Contact from "../Pages/Contact";
-
-const fetchProducts = async () => {
-  const response = await axios.get("https://fakestoreapi.com/products");
-  return response.data;
-};
-
-const fetchSingleProduct = async (eventId) => {
-  const response = await axios.get(
-    `https://fakestoreapi.com/products/${eventId.params.id}`
-  );
-  return response.data;
-};
-const fetchBlogs = async () => {
-  const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts"
-  );
-  return response.data;
-};
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import {
+  fetchProducts,
+  fetchSingleProduct,
+  fetchBlogs,
+} from "./loaderFunctions";
+import { EcomContextProvider } from "../context/EcomContext";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 const HomeRoute = () => {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <EcomContextProvider>
+        <Header />
+        <Outlet />
+        <Footer />
+      </EcomContextProvider>
     </>
   );
 };
