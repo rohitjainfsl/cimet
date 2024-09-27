@@ -12,7 +12,22 @@ import {
   fetchBlogs,
 } from "./loaderFunctions";
 import { EcomContextProvider } from "../context/EcomContext";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useRouteError,
+} from "react-router-dom";
+
+function ErrorBoundary() {
+  const error = useRouteError();
+  return (
+    <div>
+      <h2>Error occurred</h2>
+      <p>{error.message}</p> {/* Display the error message */}
+    </div>
+  );
+}
 
 const HomeRoute = () => {
   return (
@@ -42,12 +57,14 @@ const router = createBrowserRouter([
           {
             path: ":id",
             element: <SingleProduct />,
-            loader: (id) => fetchSingleProduct(id),
+            loader: fetchSingleProduct,
+            errorElement: <ErrorBoundary />,
           },
           {
             index: true,
             element: <Products />,
             loader: fetchProducts,
+            errorElement: <ErrorBoundary />,
           },
         ],
       },
