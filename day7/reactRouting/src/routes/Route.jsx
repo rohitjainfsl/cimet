@@ -1,5 +1,5 @@
+import { Suspense, lazy } from "react";
 import Home from "../Pages/Home";
-import Products from "../Pages/Products";
 import SingleProduct from "../Pages/SingleProduct";
 import ProductWrapper from "../components/ProductWrapper";
 import Blog from "../Pages/Blog";
@@ -18,6 +18,9 @@ import {
   RouterProvider,
   useRouteError,
 } from "react-router-dom";
+
+// Lazy Loaded Components
+const LazyProducts = lazy(() => import("../Pages/Products"));
 
 function ErrorBoundary() {
   const error = useRouteError();
@@ -55,15 +58,19 @@ const router = createBrowserRouter([
         element: <ProductWrapper />,
         children: [
           {
-            path: ":id",
-            element: <SingleProduct />,
-            loader: fetchSingleProduct,
+            index: true,
+            element: (
+              <Suspense fallback={<div>Loading Products...</div>}>
+                <LazyProducts />
+              </Suspense>
+            ),
+            loader: fetchProducts,
             errorElement: <ErrorBoundary />,
           },
           {
-            index: true,
-            element: <Products />,
-            loader: fetchProducts,
+            path: ":id",
+            element: <SingleProduct />,
+            loader: fetchSingleProduct,
             errorElement: <ErrorBoundary />,
           },
         ],
