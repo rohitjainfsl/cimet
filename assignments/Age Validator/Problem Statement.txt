@@ -1,0 +1,11 @@
+In this question, we are build an Age validator. You need to fix the broken parts of the implementation.
+
+Read the below mentioned specifications and make sure all are met.
+
+	The system here is an Age Validator. It tells if a user is eligible to use the services or not.
+	The user's age >= 18 years to use the services i.e. to be eligible.
+	Date Of Birth is a required field.
+	If user is eligible then show the success message else ineligible message on form submission.
+	On form submission, show an error if the DOB is missing.
+	Clicking on Why do we need to know this? CTA should toggle the message box stating the required information.
+	Back CTA on the Result screen should take user back to the Validator.
