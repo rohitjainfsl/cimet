@@ -4,10 +4,10 @@ function complexAsync() {
   const promise = new Promise((resolve, reject) => {
     intervalId = setInterval(() => {
       console.log("Tick");
-    }, 1000);
+    }, 4000);
     timeoutId = setTimeout(() => {
       resolve("Timeout completed");
-    }, 2500);
+    }, 10000);
   });
   return {
     promise,
@@ -26,4 +26,4 @@ promise.then((result) => {
 setTimeout(() => {
   cancel();
   console.log("Operation cancelled");
-}, 2501);
+}, 8009);

@@ -1,0 +1,373 @@
+//LOOPS
+let x = 1;
+for(let i=1;i<=5;i++){
+    for(let j=1;j<=5;j++){
+        x++;
+    }
+}
+console.log(x);
+
+
+//LOOPS
+let x = 1;
+for(let i=1;i<=5;i++){
+    for(let j=i+1;j<=5;j++){
+        x++;
+    }
+}
+console.log(x);
+
+
+//LOOPS
+let x = 1;
+for(let i=1;i<=5;i++){
+    for(let j=i+1;j<=5;j++){
+        x = x+i;
+    }
+}
+console.log(x);
+
+
+
+// function, array, hof
+const arr = [1, 2, 3, 4, 5];
+const result = arr.reduce((acc, cur) => acc + cur, 0) - arr.filter(x => x % 2 === 0).length;
+console.log(result);
+
+
+// function, array, string
+let str = "JavaScript";
+let output = str.split('').reverse().join('').slice(0, -3).toUpperCase();
+console.log(output);
+
+
+// function, array, hof
+const arr = [1, 2, 3, 4, 5];
+const result = arr.map(x => x * 2).filter(x => x > 5).reduce((acc, cur) => acc + cur, 0);
+console.log(result);
+
+
+// function, array, hof
+const arr = [1, 2, 3, 4, 5];
+const result = arr.slice(1, 4).map(x => x * 2).reduce((acc, cur) => acc + cur, 0);
+console.log(result);
+
+
+
+// hoisting, function, scope
+console.log(x);
+var x = 5;
+function innerScope() {
+    var x = 10;
+    console.log(x);
+}
+innerScope();
+console.log(x);
+
+
+// hositing, function, scope
+function foo() {
+    console.log(a);
+    var a = 1;
+    function a() {}
+    console.log(a);
+}
+foo();
+
+
+
+
+// hositing, closure, object, loop, function, scope
+
+var print;
+for (var i = 0; i < 3; i++) {
+    print = function() { console.log(i); };
+}
+var myObject = { print: print };
+myObject.print();
+
+
+let x = 0;
+function fun() {
+  if (x === 0) {
+    let x = 1;
+    console.log(x); // What is logged?
+  }
+  console.log(x); // What is logged?
+}
+fun();
+
+
+
+let x = 0;
+function fun() {
+  x = 1;
+  setTimeout(function () {
+    console.log(x); // What is logged?
+  }, 1000);
+};
+fun();
+
+
+
+function outer() {
+  let counter = 0;
+  function inner() {
+    counter++;
+    console.log(counter);
+  }
+  return inner;
+}
+const fn = outer();
+fn(); // What is logged?
+fn(); // What is logged?
+
+
+
+function getData(callback) {
+  setTimeout(function () {
+    callback(null, 'Data');
+  }, 2000);
+}
+getData(function (err, data) {
+  if (err) {
+    console.log('Error:', err);
+  } else {
+    console.log('Data:', data);
+  }
+});
+
+
+
+function asyncOperation(callback) {
+  setTimeout(function () {
+    callback(true);
+  }, 1000);
+}
+asyncOperation(function (value) {
+  console.log(value); // What is logged?
+});
+
+
+// function, string, array
+
+let str = "The quick brown fox jumps over the lazy dog";
+let result = str.replace(/o/g, "0").split(" ").slice(4, 7).join("-");
+console.log(result);
+
+
+// function, string,
+
+let text = "JavaScript is awesome. JavaScript is fun.";
+let result = text.replaceAll("JavaScript", "JS").indexOf("awesome") - text.lastIndexOf("is");
+console.log(result);
+
+
+// function, string,
+
+let phrase = "Hello, World!";
+let result = phrase.slice(-6, -1).split("").reverse().join("+");
+console.log(result);
+
+
+// function, string, array
+let str = "abcdefghijklmnopqrstuvwxyz";
+let result = str.slice(str.indexOf('m'), str.indexOf('t')).split('').filter((h, i) => i % 2 === 0).join('');
+console.log(result);
+
+
+// function, string, array
+
+let text = "The rain in Spain stays mainly in the plain";
+let result = text.split(" ").filter(word => word.includes("ain")).map(word => word.replace("ain", "AIN")).join(" ");
+console.log(result);
+
+
+
+//array
+
+let arr = [1, 2, 3, 4, 5];
+arr.push(6);
+arr.unshift(0);
+arr.pop();
+let result = arr.shift() + arr.splice(2, 2)[0];
+console.log(result);
+console.log(arr);
+
+
+//array
+
+let fruits = ["apple", "banana", "cherry"];
+fruits.push("date");
+fruits.unshift("apricot");
+fruits.splice(2, 1, "blueberry", "elderberry");
+console.log(fruits.length);
+console.log(fruits[2]);
+
+
+//array
+
+let numbers = [10, 20, 30, 40, 50];
+numbers.push(60, 70);
+numbers.shift();
+numbers.unshift(5, 15);
+let result = numbers.splice(2, 3).reduce((a, b) => a + b, 0);
+console.log(result);
+console.log(numbers);
+
+
+//array
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+arr1.push(...arr2);
+arr1.splice(2, 0, 7, 8);
+arr1.shift();
+let result = arr1.pop() + arr1[arr1.length - 1];
+console.log(result);
+console.log(arr1);
+
+
+//array
+
+let queue = ["Tom", "Jack", "Sarah"];
+queue.push("Emma");
+queue.shift();
+queue.unshift("Mike");
+queue.splice(1, 1, "Anna", "Chris");
+console.log(queue.length);
+console.log(queue[2]);
+
+
+
+//OBJECTS
+const obj = {a: 1, b: 2, c: 3};
+Object.seal(obj);
+obj.d = 4;
+obj.b = 5;
+delete obj.a;
+console.log(Object.keys(obj).length);
+console.log(obj.b);
+
+
+const person = {name: "John", age: 30};
+Object.freeze(person);
+person.job = "Developer";
+person.age = 31;
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}
+
+
+const obj1 = {a: 1, b: 2};
+const obj2 = {b: 3, c: 4};
+const merged = {...obj1, ...obj2};
+console.log(Object.values(merged).reduce((sum, val) => sum + val, 0));
+
+
+const obj = {x: 1, y: 2, z: 3};
+Object.defineProperty(obj, 'a', {value: 4, enumerable: false});
+console.log(Object.keys(obj).length);
+console.log(Object.getOwnPropertyNames(obj).length);
+
+
+const obj = {a: 1, b: 2, c: 3};
+const entries = Object.entries(obj);
+entries.push(['d', 4]);
+const newObj = Object.fromEntries(entries);
+console.log(Object.keys(newObj).join(''));
+
+
+let obj = {a: 1, b: 2};
+Object.seal(obj);
+Object.defineProperty(obj, 'a', {value: 3});
+Object.defineProperty(obj, 'c', {value: 4});
+console.log(obj.a);
+console.log('c' in obj);
+
+
+const original = {a: 1, b: {c: 2}};
+const clone = Object.assign({}, original);
+original.b.c = 3;
+console.log(clone.b.c);
+
+
+const obj = {a: 1, b: 2, c: 3};
+for (let [key, value] of Object.entries(obj)) {
+    if (value % 2 === 0) {
+        delete obj[key];
+    }
+}
+console.log(Object.keys(obj).length);
+
+/////////////////////// PROMISES ///////////////////////////
+
+console.log('Start');
+Promise.resolve().then(() => console.log('Promise'));
+console.log('End');
+
+
+
+const promise1 = Promise.resolve('One');
+const promise2 = new Promise((resolve) => setTimeout(() => resolve('Two'), 100));
+const promise3 = new Promise((resolve) => setTimeout(() => resolve('Three'), 50));
+Promise.race([promise1, promise2, promise3]).then(result => console.log(result));
+
+
+
+//DIFFERENCE BETWEEN THESE TWO SNIPPETS
+// Snippet 1
+Promise.resolve().then(() => console.log('A'));
+console.log('B');
+
+// Snippet 2
+(async () => {
+  await Promise.resolve();
+  console.log('A');
+})();
+console.log('B');
+
+
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    // Simulating an API call
+    setTimeout(() => {
+      const data = { id: 1, name: 'John' };
+      resolve(data);
+    }, 1000);
+  });
+}
+const result = fetchData();
+console.log(result);
+
+
+
+Promise.resolve('First')
+  .then(result => {
+    console.log(result);
+    return 'Second';
+  })
+  .then(result => {
+    console.log(result);
+    throw new Error('Something went wrong');
+  })
+  .catch(error => {
+    console.log(error.message);
+    return 'Recovered';
+  })
+  .then(result => {
+    console.log(result);
+  });
+
+
+
+console.log('Start');
+setTimeout(() => console.log('Timeout 1'), 0);
+Promise.resolve().then(() => console.log('Promise 1'))
+  .then(() => {
+    console.log('Promise 2');
+    return Promise.resolve('Promise 3');
+  })
+  .then(console.log);
+setTimeout(() => console.log('Timeout 2'), 0);
+console.log('End');
+
